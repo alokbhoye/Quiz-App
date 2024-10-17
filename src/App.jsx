@@ -1,22 +1,19 @@
-import { useState } from 'react'
-import './App.css'
-import logo from '../public/Frame.png'
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Homepage from './pages/Homepage';
+import QuestionsPage from './pages/QuestionsPage';
 
 function App() {
-
   return (
-    <>
-    <div className=' bg-purple-300 h-screen'>
-    <div className="flex items-center justify-center">
-      <img 
-        className="w-[291px] h-[70px] mt-[40px]" 
-        src={logo} 
-        alt="Logo"
-    />
-    </div> 
-</div> 
- </>
-  )
+    <Router>
+      <Routes>
+        {/* Route for Homepage */}
+        <Route path="/" element={<Homepage />} />
+
+        {/* Route for QuestionsPage */}
+        <Route path="/questions" element={<QuestionsPage />} />
+      </Routes>
+    </Router>
+  );
 }
 
-export default App
+export default App;
