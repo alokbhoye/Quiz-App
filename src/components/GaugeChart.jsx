@@ -125,16 +125,12 @@ const GaugeChart = ({ value = 0 }) => {
     bg-white
     rounded-full 
     shadow-2xl shadow-gray-400
-    absolute 
     inset-0 
     z-50 
     flex 
     items-center 
     justify-center 
-    text-black 
-    text-3xl 
-    font-bold 
-    ml-[25px] mt-[25px]
+    relative
 '>
   {value}%
   </div>
