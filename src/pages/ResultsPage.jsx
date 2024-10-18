@@ -68,6 +68,8 @@ const ResultsPage = () => {
               {/* Inner White Circle with Percentage */}
               <div
                 className="
+                  text-4xl
+                   font-bold
                   w-[200px] 
                   h-[200px] 
                   bg-white 
@@ -77,6 +79,8 @@ const ResultsPage = () => {
                   items-center 
                   justify-center 
                   z-50
+                   font-Nunito
+                  
                 "
               >
                 {report.score}%
