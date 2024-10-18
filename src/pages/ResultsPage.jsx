@@ -39,9 +39,9 @@ const ResultsPage = () => {
     <div className="h-screen w-screen bg-[#AF9CF3] flex flex-col items-center font-Nunito">
       <img src={upperIMG} alt="Decoration" className="" />
 
-      <div className="bg-white w-full rounded-t-3xl flex-grow p-10 mt-4">
+      <div className="bg-white w-full rounded-t-3xl p-4 flex-grow mt-2">
         <div className="flex flex-col items-center gap-10">
-          <h1 className="text-4xl font-bold">Your result</h1>
+          <h1 className="text-4xl font-bold mt-2 mb-[-70px]">Your result</h1>
           {/* Gauge Chart with dynamic value */}
           <GaugeChart value={report.score} />
           <div className="w-11/12 max-w-lg mt-5">
@@ -65,7 +65,7 @@ const ResultsPage = () => {
           </div>
 
           <button
-            className="w-11/12 max-w-lg bg-red-500 text-white font-bold py-4 text-xl hover:bg-red-600 rounded-full"
+            className=" w-11/12 max-w-lg bg-red-500 text-white font-bold py-4 text-xl hover:bg-red-600 rounded-full"
             onClick={() => navigate('/')}
           >
             Start Again
