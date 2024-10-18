@@ -14,23 +14,23 @@ const GaugeChart = ({ value = 0 }) => {
       {
         data: [value, 100 - value], // Dynamic value input
         backgroundColor: (ctx) => {
-          const { chartArea, ctx: chartCtx } = ctx.chart;
-          if (!chartArea) return; // Ensure chart area is available
-
-          const gradient = chartCtx.createLinearGradient(
-            chartArea.left,
-            0,
-            chartArea.right,
-            0
-          );
-
-          // Gradient from green to red
-          gradient.addColorStop(1, 'rgba(0, 255, 0, 1)'); // Green
-          gradient.addColorStop(0.5, 'rgba(255, 255, 0, 1)'); // Yellow
-          gradient.addColorStop(0, 'rgba(255, 0, 0, 1)'); // Red
-
-          return [gradient, '#EBEDF5']; // Gradient for value, gray for remaining
-        },
+            const { chartArea, ctx: chartCtx } = ctx.chart;
+            if (!chartArea) return; // Ensure chart area is available
+  
+            const gradient = chartCtx.createLinearGradient(
+              chartArea.left,
+              0,
+              chartArea.right,
+              0
+            );
+  
+            // Gradient from green to yellow to red
+            gradient.addColorStop(1, 'rgba(0, 255, 0, 1)'); // Green
+            gradient.addColorStop(0.5, 'rgba(255, 255, 0, 1)'); // Yellow
+            gradient.addColorStop(0, 'rgba(255, 0, 0, 1)'); // Red
+  
+            return gradient;
+        },
         borderWidth: 0,
         cutout: '85%', // Hollow center
         rotation: -90, // Start from the top center
@@ -92,12 +92,12 @@ const GaugeChart = ({ value = 0 }) => {
   }, [value]);
 
   return (
-    <div className="relative w-72 h-72">
+    <div className="absolute w-[350px] h-[350px]">
       {/* Needle Canvas */}
       <canvas ref={needleRef} className="absolute inset-0" width="300" height="300" />
       
       {/* Doughnut Gauge */}
-      <Doughnut data={data} options={options} />
+      <Doughnut data={data} options={options}/>
 
       {/* Display the percentage in the center */}
       
