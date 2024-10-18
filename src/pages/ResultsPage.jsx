@@ -7,12 +7,12 @@ import upperIMG from '../assets/effect.svg'; // Ensure this asset exists
 const ResultsPage = () => {
   const location = useLocation();
   const navigate = useNavigate();
-  const [report, setReport] = useState(null); // Ensure the initial state is null
+  const [report, setReport] = useState(null);
 
   useEffect(() => {
     const { answers } = location.state || { answers: [] };
     if (answers.length === 0) {
-      navigate('/'); // Navigate to home if no answers
+      navigate('/');
       return;
     }
 
@@ -32,7 +32,7 @@ const ResultsPage = () => {
   }, [location, navigate]);
 
   if (!report) {
-    return <div>Loading report...</div>; // Render loading state properly
+    return <div>Loading report...</div>;
   }
 
   return (
@@ -41,9 +41,49 @@ const ResultsPage = () => {
 
       <div className="bg-white w-full rounded-t-3xl p-4 flex-grow mt-2">
         <div className="flex flex-col items-center gap-10">
-          <h1 className="text-4xl font-bold mt-2 mb-[-70px]">Your result</h1>
-          {/* Gauge Chart with dynamic value */}
-          <GaugeChart value={report.score} />
+          <h1 className="text-4xl font-bold mt-2">Your result</h1>
+
+          {/* Gauge Chart with Centered Value Circles */}
+          <div className="relative w-72 h-72 flex items-center justify-center">
+            <GaugeChart value={report.score} />
+
+            {/* Outer Gray Circle - Adjusted Downwards */}
+            <div
+              className="
+                absolute 
+                w-[250px] 
+                h-[250px] 
+                bg-gray-100 
+                rounded-full 
+                shadow-2xl shadow-gray-400 
+                flex 
+                items-center 
+                justify-center 
+                z-40
+                transform 
+                translate-y-10  /* Adjust vertical position */
+                mt-10
+              "
+            >
+              {/* Inner White Circle with Percentage */}
+              <div
+                className="
+                  w-[200px] 
+                  h-[200px] 
+                  bg-white 
+                  rounded-full 
+                  shadow-2xl shadow-gray-400 
+                  flex 
+                  items-center 
+                  justify-center 
+                  z-50
+                "
+              >
+                {report.score}%
+              </div>
+            </div>
+          </div>
+
           <div className="w-11/12 max-w-lg mt-5">
             <div className="flex items-center justify-between bg-green-100 rounded-lg p-4 mb-4">
               <div className="flex items-center">
@@ -65,7 +105,7 @@ const ResultsPage = () => {
           </div>
 
           <button
-            className=" w-11/12 max-w-lg bg-red-500 text-white font-bold py-4 text-xl hover:bg-red-600 rounded-full"
+            className="w-11/12 max-w-lg bg-red-500 text-white font-bold py-4 text-xl hover:bg-red-600 rounded-full"
             onClick={() => navigate('/')}
           >
             Start Again

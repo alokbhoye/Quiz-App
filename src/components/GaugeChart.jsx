@@ -101,40 +101,7 @@ const GaugeChart = ({ value = 0 }) => {
 
       {/* Display the percentage in the center */}
       
-      <div 
-  className="
-    w-[250px] 
-    h-[250px] 
-    bg-gray-100
-    rounded-full 
-    shadow-2xl shadow-gray-400
-    absolute 
-    inset-0 
-    z-40 
-    flex 
-    items-center 
-    justify-center 
-    text-black 
-    text-3xl 
-    font-bold 
-    ml-[55px]
-    mt-[150px]
-  ">
-    <div className='w-[200px] 
-    h-[200px] 
-    bg-white
-    rounded-full 
-    shadow-2xl shadow-gray-400
-    inset-0 
-    z-50 
-    flex 
-    items-center 
-    justify-center 
-    relative
-'>
-  {value}%
-  </div>
-</div>
+      
 
     </div>
   );
