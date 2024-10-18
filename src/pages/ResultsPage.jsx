@@ -51,8 +51,8 @@ const ResultsPage = () => {
             <div
               className="
                 absolute 
-                w-[250px] 
-                h-[250px] 
+                w-[200px] 
+                h-[200px] 
                 bg-gray-100 
                 rounded-full 
                 shadow-2xl shadow-gray-400 
@@ -68,10 +68,10 @@ const ResultsPage = () => {
               {/* Inner White Circle with Percentage */}
               <div
                 className="
-                  text-4xl
+                  text-3xl
                    font-bold
-                  w-[200px] 
-                  h-[200px] 
+                  w-[150px] 
+                  h-[150px] 
                   bg-white 
                   rounded-full 
                   shadow-2xl shadow-gray-400 
