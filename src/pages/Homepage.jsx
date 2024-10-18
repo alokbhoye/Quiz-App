@@ -1,14 +1,9 @@
-import { useNavigate } from 'react-router-dom'; // Import useNavigate hook
+import { useNavigate } from 'react-router-dom';
 import logo from '../assets/Frame.png';
 import quizbutton from '../assets/Group 3.svg';
-import startButton from '../assets/Start button.png';
 
 const Homepage = () => {
-  const navigate = useNavigate(); // Initialize useNavigate
-
-  const handleStartClick = () => {
-    navigate('/questions'); // Navigate to QuestionsPage
-  };
+  const navigate = useNavigate();
 
   return (
     <div
@@ -18,33 +13,21 @@ const Homepage = () => {
         backgroundBlendMode: 'multiply',
       }}
     >
-      {/* Logo Section */}
-      <div className="flex items-center justify-center pt-[40px]">
-        <img 
-          className="w-[291px] h-[70px]" 
-          src={logo} 
-          alt="Logo" 
-        />
+      <div className="flex items-center justify-center pt-10">
+        <img className="w-60 h-13 m-0 " src={logo} alt="Logo" />
       </div>
 
-      {/* Quiz Button Section */}
       <div className="flex items-center justify-center h-screen">
-        <img 
-          className="w-[350px] h-[396px]" 
-          src={quizbutton} 
-          alt="Quiz Button" 
-        />
+        <img className="w-[300px] h-[300px]" src={quizbutton} alt="Quiz Button" />
       </div>
 
-      {/* Start Button */}
       <div className="flex items-center justify-center">
-        <img 
-          className="mb-[20px]" 
-          src={startButton} 
-          alt="Start Button" 
-          onClick={handleStartClick} // Call handleStartClick on click
-          style={{ cursor: 'pointer' }} // Optional: Change cursor to pointer
-        />
+        <button
+          className="w-[90%] h-[78px] bg-red-500 text-white text-3xl font-bold rounded-full shadow-md hover:bg-red-600 transition-all mb-7 font-nunito"
+          onClick={() => navigate('/questions')}
+        >
+          Start
+        </button>
       </div>
     </div>
   );
